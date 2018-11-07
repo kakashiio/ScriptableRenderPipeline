@@ -1600,33 +1600,6 @@ namespace UnityEditor.VFX.UI
         }
         
 
-
-        List<VFXSystemBorder> m_Systems = new List<VFXSystemBorder>();
-
-        public void UpdateSystems()
-        {
-            while (m_Systems.Count() > controller.systems.Count())
-            {
-                VFXSystemBorder border = m_Systems.Last();
-                m_Systems.RemoveAt(m_Systems.Count - 1);
-                border.RemoveFromHierarchy();
-            }
-
-            foreach(var system in m_Systems)
-            {
-                system.Update();
-            }
-
-            while (m_Systems.Count() < controller.systems.Count())
-            {
-                VFXSystemBorder border = new VFXSystemBorder();
-                m_Systems.Add(border);
-                border.controller = controller.systems[m_Systems.Count()-1];
-                AddElement(border);
-            }
-        }
-        
-
         bool IDropTarget.CanAcceptDrop(List<ISelectable> selection)
         {
             return selection.Any(t => t is BlackboardField && (t as BlackboardField).GetFirstAncestorOfType<VFXBlackboardRow>() != null);
