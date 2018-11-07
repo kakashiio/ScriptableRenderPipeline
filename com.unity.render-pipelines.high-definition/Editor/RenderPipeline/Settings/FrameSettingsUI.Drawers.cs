@@ -126,7 +126,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
             {
                 RenderPipelineSettings hdrpSettings = (GraphicsSettings.renderPipelineAsset as HDRenderPipelineAsset).renderPipelineSettings;
                 FrameSettings defaultFrameSettings = GetDefaultFrameSettingsFor(owner);
-                OverridableSettingsArea area = new OverridableSettingsArea(7);
+                OverridableSettingsArea area = new OverridableSettingsArea(6);
                 LitShaderMode defaultShaderLitMode;
                 switch(hdrpSettings.supportedLitShaderMode)
                 {
@@ -172,9 +172,9 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
                 FrameSettings defaultFrameSettings = GetDefaultFrameSettingsFor(owner);
 
                 area.Add(p.enableAsyncCompute, asyncComputeContent, () => p.overridesAsyncCompute, a => p.overridesAsyncCompute = a, defaultValue: defaultFrameSettings.enableAsyncCompute);
-                area.Add(p.runBuildLightListAsync, lightListAsyncContent, () => p.overrideLightListInAsync, a => p.overrideLightListInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runLightListAsync);
-                area.Add(p.runSSRAsync, SSRAsyncContent, () => p.overrideSSRInAsync, a => p.overrideSSRInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runSSRAsync);
-                area.Add(p.runSSAOAsync, SSAOAsyncContent, () => p.overrideSSAOInAsync, a => p.overrideSSAOInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runSSAOAsync);
+                area.Add(p.runBuildLightListAsync, lightListAsyncContent, () => p.overrideLightListInAsync, a => p.overrideLightListInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runLightListAsync, indent: 1);
+                area.Add(p.runSSRAsync, SSRAsyncContent, () => p.overrideSSRInAsync, a => p.overrideSSRInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runSSRAsync, indent: 1);
+                area.Add(p.runSSAOAsync, SSAOAsyncContent, () => p.overrideSSAOInAsync, a => p.overrideSSAOInAsync = a, () => p.enableAsyncCompute.boolValue, defaultValue: defaultFrameSettings.runSSAOAsync, indent: 1);
                 area.Draw(withOverride);
             }
         }

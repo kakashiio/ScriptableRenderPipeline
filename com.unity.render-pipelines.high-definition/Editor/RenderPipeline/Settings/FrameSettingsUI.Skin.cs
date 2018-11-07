@@ -39,7 +39,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
         static readonly GUIContent lightLayerContent = CoreEditorUtils.GetContent("LightLayers");
 
         // Async compute
-        static readonly GUIContent asyncComputeContent = CoreEditorUtils.GetContent("Enable Async Compute (when supported)");
+        static readonly GUIContent asyncComputeContent = CoreEditorUtils.GetContent("Async Compute (when supported)");
         static readonly GUIContent lightListAsyncContent = CoreEditorUtils.GetContent("Build Light List in Async");
         static readonly GUIContent SSRAsyncContent = CoreEditorUtils.GetContent("SSR in Async");
         static readonly GUIContent SSAOAsyncContent = CoreEditorUtils.GetContent("SSAO in Async");
