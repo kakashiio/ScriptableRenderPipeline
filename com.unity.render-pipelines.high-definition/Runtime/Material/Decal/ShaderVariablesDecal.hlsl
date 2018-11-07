@@ -1,10 +1,8 @@
 #ifdef SHADER_VARIABLES_INCLUDE_CB
-uint    _EnableDecals;
-float2  _DecalAtlasResolution;
-uint    _DecalCount;
+    #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/ShaderVariablesDecal.cs.hlsl"
 #else
 
-#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal//Decal.cs.hlsl"
+#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/Decal.cs.hlsl"
 
 StructuredBuffer<DecalData> _DecalDatas;
 
