@@ -1542,6 +1542,7 @@ namespace UnityEditor.VFX.UI
             base.BuildContextualMenu(evt);
 
             Vector2 mousePosition = evt.mousePosition;
+            bool hasMenu = false;
 
             if (evt.target is VFXNodeUI)
             {
