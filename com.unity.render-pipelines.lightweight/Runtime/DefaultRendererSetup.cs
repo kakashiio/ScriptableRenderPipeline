@@ -245,8 +245,8 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             // we need to stay in a RT
             if (afterRenderExists)
             {
-                // perform post with src / dest the same 
-                if (!renderingData.cameraData.isStereoEnabled && renderingData.cameraData.postProcessEnabled)
+                // perform post with src / dest the same
+                if (renderingData.cameraData.postProcessEnabled)
                 {
                     m_CreatePostTransparentColorPass.Setup(baseDescriptor, m_ColorAttachmentAfterTransparentPost, sampleCount);
                     renderer.EnqueuePass(m_CreatePostTransparentColorPass);
@@ -270,9 +270,9 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             }
             else
             {
-                if (!renderingData.cameraData.isStereoEnabled && renderingData.cameraData.postProcessEnabled)
+                if (renderingData.cameraData.postProcessEnabled)
                 {
-                    m_PostProcessPass.Setup(baseDescriptor, colorHandle, RenderTargetHandle.CameraTarget, false, (!renderingData.cameraData.isStereoEnabled && renderingData.cameraData.camera.targetTexture == null));
+                    m_PostProcessPass.Setup(baseDescriptor, colorHandle, RenderTargetHandle.CameraTarget, false, renderingData.cameraData.camera.targetTexture == null);
                     renderer.EnqueuePass(m_PostProcessPass);
                 }
                 else if (colorHandle != RenderTargetHandle.CameraTarget)
