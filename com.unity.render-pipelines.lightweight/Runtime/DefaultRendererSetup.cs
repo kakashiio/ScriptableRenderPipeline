@@ -245,7 +245,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
             // we need to stay in a RT
             if (afterRenderExists)
             {
-                // perform post with src / dest the same
+                // perform post with src / dest the same 
                 if (!renderingData.cameraData.isStereoEnabled && renderingData.cameraData.postProcessEnabled)
                 {
                     m_CreatePostTransparentColorPass.Setup(baseDescriptor, m_ColorAttachmentAfterTransparentPost, sampleCount);
